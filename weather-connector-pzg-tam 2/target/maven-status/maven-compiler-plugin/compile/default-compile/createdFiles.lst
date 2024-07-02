@@ -1,0 +1,3 @@
+io/camunda/example/dto/WeatherConnectorResult.class
+io/camunda/example/dto/WeatherConnectorRequest.class
+io/camunda/example/WeatherConnectorFunction.class

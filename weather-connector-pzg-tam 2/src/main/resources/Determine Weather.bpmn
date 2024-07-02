@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="5130cf9" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0" camunda:diagramRelationId="e3e1fac6-85a6-448e-bc9c-b5e401310648">
+  <bpmn:process id="Process_0cfczov" name="Determine Weather" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Weather needed">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formId="weather-needed-03qqrqi" />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_18dhs2r</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_18dhs2r" sourceRef="StartEvent_1" targetRef="Activity_0jq7sl7" />
+    <bpmn:endEvent id="Event_0q8pgvn" name="Weather confirmed">
+      <bpmn:incoming>Flow_0c5r1v4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1xjkkam" sourceRef="Activity_0jq7sl7" targetRef="Activity_1yomgit" />
+    <bpmn:serviceTask id="Activity_0jq7sl7" name="Get weather" zeebe:modelerTemplate="848eb375-eac4-4d58-93f6-a7f5c4d715c4" zeebe:modelerTemplateVersion="1719958716986" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjIuODggODYuNjciPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojZmZjMTA2O30uY2xzLTJ7ZmlsbDojZmZkMjA1O30uY2xzLTN7ZmlsbDojMTNiNWYwO30uY2xzLTR7ZmlsbDojNGJjZmZmO30uY2xzLTV7ZmlsbDojN2NkY2ZmO308L3N0eWxlPjwvZGVmcz48dGl0bGU+d2VhdGhlcjwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjcuMTUsMy41NmEyLjg0LDIuODQsMCwxLDEsNS40OS0xLjQ0bDEuODQsNy4wNkEyLjg0LDIuODQsMCwwLDEsNjksMTAuNjJMNjcuMTUsMy41NlpNODYuNTIsMTguNjJBMjUuNDEsMjUuNDEsMCwwLDEsOTIuNjIsNjVsLTEuNDgtOC4xMmMtMS0xMC44Ny0xMC42My0xMy41MS0yMi44NC0xMy42Ni0xLjI4LTUuNDEtNC45NC05LjQtMTEuMDgtMTEuODlhMjUuNDEsMjUuNDEsMCwwLDEsMjkuMy0xMi43NVpNODguNjEsMi41NUEyLjg1LDIuODUsMCwwLDEsOTQuMSw0LjA2bC0xLjk0LDdhMi44NSwyLjg1LDAsMSwxLTUuNDktMS41MWwxLjk0LTdabTE5LjExLDkuODdhMi44MywyLjgzLDAsMCwxLDQsNGwtNS4xOSw1LjEyYTIuODQsMi44NCwwLDAsMS00LTRsNS4yLTUuMTJabTExLjYsMTguMDhhMi44NCwyLjg0LDAsMCwxLDEuNDQsNS41bC03LjA2LDEuODNhMi44NCwyLjg0LDAsMSwxLTEuNDQtNS40OWw3LjA2LTEuODRabTEsMjEuNDdhMi44NCwyLjg0LDAsMSwxLTEuNTEsNS40OGwtNy0xLjk0QTIuODQsMi44NCwwLDEsMSwxMTMuMyw1MGw3LDEuOTRabS05Ljg3LDE5LjFhMi44NCwyLjg0LDAsMCwxLTQsNGwtNS4xMi01LjJhMi44NCwyLjg0LDAsMCwxLDQtNGw1LjEyLDUuMlpNNDkuMDcsMTUuMTZhMi44MywyLjgzLDAsMCwxLDQtNGw1LjExLDUuMTlhMi44NCwyLjg0LDAsMSwxLTQsNGwtNS4xMS01LjJaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNODYuNTIsMTguNjJhMjUuMzMsMjUuMzMsMCwwLDEsMTMuMTYsOC43TDcyLjM2LDQzLjQyYy0xLjMyLS4wOS0yLjY3LS4xNC00LjA2LS4xNi0xLjI4LTUuNDEtNC45NC05LjQtMTEuMDgtMTEuODlhMjUuNDEsMjUuNDEsMCwwLDEsMjkuMy0xMi43NVoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik03MS40OSw0MS4yMmEyMy40NywyMy40NywwLDAsMSwzLjcyLS4yOCwxOS4xMiwxOS4xMiwwLDAsMSwxNC4yMyw2LjE4LDIzLjgyLDIzLjgyLDAsMCwxLDIuMzUsM0EyNS42NCwyNS42NCwwLDAsMSw5NS41LDY0LjA4YTIyLjg5LDIyLjg5LDAsMCwxLTQuMDgsMTMuMzgsMjEuMzMsMjEuMzMsMCwwLDEtNi43NCw1Ljc2LDM0LjgzLDM0LjgzLDAsMCwxLTkuMDgsMy4zN2wtLjYzLjA4SDE4LjE3bC0uMzYsMGEyMS43NSwyMS43NSwwLDAsMS01LjY2LTEuNDYsMTcuOCwxNy44LDAsMCwxLTQuNy0yLjgyQTE5Ljc3LDE5Ljc3LDAsMCwxLDQsNzguNjgsMjEuMjcsMjEuMjcsMCwwLDEsMCw2Ni4zOSwxOC45LDE4LjksMCwwLDEsNC4yOSw1NC4wN2ExOC4zOSwxOC4zOSwwLDAsMSwzLjM3LTMuMTQsMjMsMjMsMCwwLDEsNS4xNi0yLjc2LDMxLjQ4LDMxLjQ4LDAsMCwxLDQuMjgtMS4zLDI4LjA4LDI4LjA4LDAsMCwxLDEwLTE1LjY2LDI5LjIsMjkuMiwwLDAsMSwxNS4wOS01Ljg5LDMwLjE3LDMwLjE3LDAsMCwxLDE2LDIuNzlBMjguNjYsMjguNjYsMCwwLDEsNzEuNDksNDEuMjJaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNjcuMTEsNDguNDRjLS41OC4yOC0xLjE3LjYtMS43Ni45NGE0MS41MSw0MS41MSwwLDAsMC01LjI0LDMuNzFsLTMuNzYtNC4zYTMxLjgsMzEuOCwwLDAsMSw0LjItMy4yOCwyOS44OSwyOS44OSwwLDAsMSwzLjcxLTIuMDZjLjUyLS4yNSwxLS40OSwxLjU2LS43MmEyMi45MSwyMi45MSwwLDAsMC0xMC4wOS05LjQ4LDI0LjYzLDI0LjYzLDAsMCwwLTEzLTIuMjUsMjMuNDMsMjMuNDMsMCwwLDAtMTIuMTQsNC43NCwyMi43OSwyMi43OSwwLDAsMC04LjM0LDE0LjA5bC0uMzcsMkwyMCw1Mi4xM2EyNi41MywyNi41MywwLDAsMC01LjEsMS4zN0ExNy4wNSwxNy4wNSwwLDAsMCwxMSw1NS41N2ExMi4yMiwxMi4yMiwwLDAsMC0yLjM0LDIuMTgsMTMuMDksMTMuMDksMCwwLDAtMyw4LjYyLDE1LjU4LDE1LjU4LDAsMCwwLDIuOTQsOUExNC43MSwxNC43MSwwLDAsMCwxMS4xLDc4YTEyLjQzLDEyLjQzLDAsMCwwLDMuMjEsMS45MiwxNi41NSwxNi41NSwwLDAsMCw0LDFINzQuNjVhMjksMjksMCwwLDAsNy4yMy0yLjcxLDE1LjU1LDE1LjU1LDAsMCwwLDUtNC4yLDE3LjIzLDE3LjIzLDAsMCwwLDIuOTQtMTBBMTkuNzksMTkuNzksMCwwLDAsODcsNTMuMjYsMTYuNywxNi43LDAsMCwwLDg1LjI0LDUxYTEzLjQzLDEzLjQzLDAsMCwwLTEwLjA2LTQuMzcsMTkuNjcsMTkuNjcsMCwwLDAtOC4wNywxLjc5WiIvPjxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTY1LjU0LDQyLjI1YTIyLjkyLDIyLjkyLDAsMCwwLTkuODEtOSwyNC42MywyNC42MywwLDAsMC0xMy0yLjI1LDIzLjQzLDIzLjQzLDAsMCwwLTEyLjE0LDQuNzQsMjIuNzksMjIuNzksMCwwLDAtOC4zNCwxNC4wOWwtLjM3LDJMMjAsNTIuMTNhMjYuNTMsMjYuNTMsMCwwLDAtNS4xLDEuMzdBMTcuMDUsMTcuMDUsMCwwLDAsMTEsNTUuNTdhMTIuMjIsMTIuMjIsMCwwLDAtMi4zNCwyLjE4LDEzLjA5LDEzLjA5LDAsMCwwLTMsOC42MiwxNS41OCwxNS41OCwwLDAsMCwyLjk0LDlBMTQuNzEsMTQuNzEsMCwwLDAsMTEuMSw3OGwuNS4zOUM1MC4yOCw3My44MSw0My40LDQ1LjcsNjUuNTQsNDIuMjVaIi8+PC9zdmc+">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:weather:1" retries="3" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=city" target="location" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="resultVariable" value="restult" />
+          <zeebe:header key="retryBackoff" value="PT0S" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_18dhs2r</bpmn:incoming>
+      <bpmn:outgoing>Flow_1xjkkam</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0c5r1v4" sourceRef="Activity_1yomgit" targetRef="Event_0q8pgvn" />
+    <bpmn:userTask id="Activity_1yomgit" name="See results">
+      <bpmn:incoming>Flow_1xjkkam</bpmn:incoming>
+      <bpmn:outgoing>Flow_0c5r1v4</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0cfczov">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="112" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="169" y="155" width="82" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0q8pgvn_di" bpmnElement="Event_0q8pgvn">
+        <dc:Bounds x="712" y="112" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="706" y="155" width="49" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1r00p13_di" bpmnElement="Activity_0jq7sl7">
+        <dc:Bounds x="330" y="90" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wryw6l_di" bpmnElement="Activity_1yomgit">
+        <dc:Bounds x="510" y="90" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_18dhs2r_di" bpmnElement="Flow_18dhs2r">
+        <di:waypoint x="228" y="130" />
+        <di:waypoint x="330" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xjkkam_di" bpmnElement="Flow_1xjkkam">
+        <di:waypoint x="430" y="130" />
+        <di:waypoint x="510" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0c5r1v4_di" bpmnElement="Flow_0c5r1v4">
+        <di:waypoint x="610" y="130" />
+        <di:waypoint x="712" y="130" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

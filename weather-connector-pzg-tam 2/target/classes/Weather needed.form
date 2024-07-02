@@ -1,0 +1,33 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "5130cf9"
+  },
+  "schemaVersion": 16,
+  "id": "weather-needed-03qqrqi",
+  "components": [
+    {
+      "text": "# Indicate the city for which you want to see the weather information",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0r2nmoe",
+        "columns": null
+      },
+      "id": "Field_1qoeuic"
+    },
+    {
+      "label": "City",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0ia9vt4",
+        "columns": null
+      },
+      "id": "Field_08uq2cm",
+      "key": "city"
+    }
+  ],
+  "type": "default"
+}

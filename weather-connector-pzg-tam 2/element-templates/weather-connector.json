@@ -1,0 +1,107 @@
+{
+  "$schema" : "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name" : "Weather connector",
+  "id" : "io.camunda.connector.weather.v1",
+  "description" : "Helps to connect to weather API",
+  "documentationRef" : "https://app.tomorrow.io/",
+  "version" : 1,
+  "category" : {
+    "id" : "connectors",
+    "name" : "Connectors"
+  },
+  "appliesTo" : [ "bpmn:Task" ],
+  "elementType" : {
+    "value" : "bpmn:ServiceTask"
+  },
+  "groups" : [ {
+    "id" : "city",
+    "label" : "City"
+  }, {
+    "id" : "output",
+    "label" : "Output mapping"
+  }, {
+    "id" : "error",
+    "label" : "Error handling"
+  }, {
+    "id" : "retries",
+    "label" : "Retries"
+  } ],
+  "properties" : [ {
+    "value" : "io.camunda:weather:1",
+    "binding" : {
+      "property" : "type",
+      "type" : "zeebe:taskDefinition"
+    },
+    "type" : "Hidden"
+  }, {
+    "id" : "location",
+    "label" : "Location",
+    "optional" : false,
+    "feel" : "optional",
+    "group" : "city",
+    "binding" : {
+      "name" : "location",
+      "type" : "zeebe:input"
+    },
+    "type" : "String"
+  }, {
+    "id" : "resultVariable",
+    "label" : "Result variable",
+    "description" : "Name of variable to store the response in",
+    "group" : "output",
+    "binding" : {
+      "key" : "resultVariable",
+      "type" : "zeebe:taskHeader"
+    },
+    "type" : "String"
+  }, {
+    "id" : "resultExpression",
+    "label" : "Result expression",
+    "description" : "Expression to map the response into process variables",
+    "feel" : "required",
+    "group" : "output",
+    "binding" : {
+      "key" : "resultExpression",
+      "type" : "zeebe:taskHeader"
+    },
+    "type" : "Text"
+  }, {
+    "id" : "errorExpression",
+    "label" : "Error expression",
+    "description" : "Expression to handle errors. Details in the <a href=\"https://docs.camunda.io/docs/components/connectors/use-connectors/\" target=\"_blank\">documentation</a>.",
+    "feel" : "required",
+    "group" : "error",
+    "binding" : {
+      "key" : "errorExpression",
+      "type" : "zeebe:taskHeader"
+    },
+    "type" : "Text"
+  }, {
+    "id" : "retryCount",
+    "label" : "Retries",
+    "description" : "Number of retries",
+    "value" : "3",
+    "feel" : "optional",
+    "group" : "retries",
+    "binding" : {
+      "property" : "retries",
+      "type" : "zeebe:taskDefinition"
+    },
+    "type" : "String"
+  }, {
+    "id" : "retryBackoff",
+    "label" : "Retry backoff",
+    "description" : "ISO-8601 duration to wait between retries",
+    "value" : "PT0S",
+    "feel" : "optional",
+    "group" : "retries",
+    "binding" : {
+      "key" : "retryBackoff",
+      "type" : "zeebe:taskHeader"
+    },
+    "type" : "String"
+  } ],
+  "icon" : {
+    "contents" : "data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjIuODggODYuNjciPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojZmZjMTA2O30uY2xzLTJ7ZmlsbDojZmZkMjA1O30uY2xzLTN7ZmlsbDojMTNiNWYwO30uY2xzLTR7ZmlsbDojNGJjZmZmO30uY2xzLTV7ZmlsbDojN2NkY2ZmO308L3N0eWxlPjwvZGVmcz48dGl0bGU+d2VhdGhlcjwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjcuMTUsMy41NmEyLjg0LDIuODQsMCwxLDEsNS40OS0xLjQ0bDEuODQsNy4wNkEyLjg0LDIuODQsMCwwLDEsNjksMTAuNjJMNjcuMTUsMy41NlpNODYuNTIsMTguNjJBMjUuNDEsMjUuNDEsMCwwLDEsOTIuNjIsNjVsLTEuNDgtOC4xMmMtMS0xMC44Ny0xMC42My0xMy41MS0yMi44NC0xMy42Ni0xLjI4LTUuNDEtNC45NC05LjQtMTEuMDgtMTEuODlhMjUuNDEsMjUuNDEsMCwwLDEsMjkuMy0xMi43NVpNODguNjEsMi41NUEyLjg1LDIuODUsMCwwLDEsOTQuMSw0LjA2bC0xLjk0LDdhMi44NSwyLjg1LDAsMSwxLTUuNDktMS41MWwxLjk0LTdabTE5LjExLDkuODdhMi44MywyLjgzLDAsMCwxLDQsNGwtNS4xOSw1LjEyYTIuODQsMi44NCwwLDAsMS00LTRsNS4yLTUuMTJabTExLjYsMTguMDhhMi44NCwyLjg0LDAsMCwxLDEuNDQsNS41bC03LjA2LDEuODNhMi44NCwyLjg0LDAsMSwxLTEuNDQtNS40OWw3LjA2LTEuODRabTEsMjEuNDdhMi44NCwyLjg0LDAsMSwxLTEuNTEsNS40OGwtNy0xLjk0QTIuODQsMi44NCwwLDEsMSwxMTMuMyw1MGw3LDEuOTRabS05Ljg3LDE5LjFhMi44NCwyLjg0LDAsMCwxLTQsNGwtNS4xMi01LjJhMi44NCwyLjg0LDAsMCwxLDQtNGw1LjEyLDUuMlpNNDkuMDcsMTUuMTZhMi44MywyLjgzLDAsMCwxLDQtNGw1LjExLDUuMTlhMi44NCwyLjg0LDAsMSwxLTQsNGwtNS4xMS01LjJaIi8+PHBhdGggY2xhc3M9ImNscy0yIiBkPSJNODYuNTIsMTguNjJhMjUuMzMsMjUuMzMsMCwwLDEsMTMuMTYsOC43TDcyLjM2LDQzLjQyYy0xLjMyLS4wOS0yLjY3LS4xNC00LjA2LS4xNi0xLjI4LTUuNDEtNC45NC05LjQtMTEuMDgtMTEuODlhMjUuNDEsMjUuNDEsMCwwLDEsMjkuMy0xMi43NVoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik03MS40OSw0MS4yMmEyMy40NywyMy40NywwLDAsMSwzLjcyLS4yOCwxOS4xMiwxOS4xMiwwLDAsMSwxNC4yMyw2LjE4LDIzLjgyLDIzLjgyLDAsMCwxLDIuMzUsM0EyNS42NCwyNS42NCwwLDAsMSw5NS41LDY0LjA4YTIyLjg5LDIyLjg5LDAsMCwxLTQuMDgsMTMuMzgsMjEuMzMsMjEuMzMsMCwwLDEtNi43NCw1Ljc2LDM0LjgzLDM0LjgzLDAsMCwxLTkuMDgsMy4zN2wtLjYzLjA4SDE4LjE3bC0uMzYsMGEyMS43NSwyMS43NSwwLDAsMS01LjY2LTEuNDYsMTcuOCwxNy44LDAsMCwxLTQuNy0yLjgyQTE5Ljc3LDE5Ljc3LDAsMCwxLDQsNzguNjgsMjEuMjcsMjEuMjcsMCwwLDEsMCw2Ni4zOSwxOC45LDE4LjksMCwwLDEsNC4yOSw1NC4wN2ExOC4zOSwxOC4zOSwwLDAsMSwzLjM3LTMuMTQsMjMsMjMsMCwwLDEsNS4xNi0yLjc2LDMxLjQ4LDMxLjQ4LDAsMCwxLDQuMjgtMS4zLDI4LjA4LDI4LjA4LDAsMCwxLDEwLTE1LjY2LDI5LjIsMjkuMiwwLDAsMSwxNS4wOS01Ljg5LDMwLjE3LDMwLjE3LDAsMCwxLDE2LDIuNzlBMjguNjYsMjguNjYsMCwwLDEsNzEuNDksNDEuMjJaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNNjcuMTEsNDguNDRjLS41OC4yOC0xLjE3LjYtMS43Ni45NGE0MS41MSw0MS41MSwwLDAsMC01LjI0LDMuNzFsLTMuNzYtNC4zYTMxLjgsMzEuOCwwLDAsMSw0LjItMy4yOCwyOS44OSwyOS44OSwwLDAsMSwzLjcxLTIuMDZjLjUyLS4yNSwxLS40OSwxLjU2LS43MmEyMi45MSwyMi45MSwwLDAsMC0xMC4wOS05LjQ4LDI0LjYzLDI0LjYzLDAsMCwwLTEzLTIuMjUsMjMuNDMsMjMuNDMsMCwwLDAtMTIuMTQsNC43NCwyMi43OSwyMi43OSwwLDAsMC04LjM0LDE0LjA5bC0uMzcsMkwyMCw1Mi4xM2EyNi41MywyNi41MywwLDAsMC01LjEsMS4zN0ExNy4wNSwxNy4wNSwwLDAsMCwxMSw1NS41N2ExMi4yMiwxMi4yMiwwLDAsMC0yLjM0LDIuMTgsMTMuMDksMTMuMDksMCwwLDAtMyw4LjYyLDE1LjU4LDE1LjU4LDAsMCwwLDIuOTQsOUExNC43MSwxNC43MSwwLDAsMCwxMS4xLDc4YTEyLjQzLDEyLjQzLDAsMCwwLDMuMjEsMS45MiwxNi41NSwxNi41NSwwLDAsMCw0LDFINzQuNjVhMjksMjksMCwwLDAsNy4yMy0yLjcxLDE1LjU1LDE1LjU1LDAsMCwwLDUtNC4yLDE3LjIzLDE3LjIzLDAsMCwwLDIuOTQtMTBBMTkuNzksMTkuNzksMCwwLDAsODcsNTMuMjYsMTYuNywxNi43LDAsMCwwLDg1LjI0LDUxYTEzLjQzLDEzLjQzLDAsMCwwLTEwLjA2LTQuMzcsMTkuNjcsMTkuNjcsMCwwLDAtOC4wNywxLjc5WiIvPjxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTY1LjU0LDQyLjI1YTIyLjkyLDIyLjkyLDAsMCwwLTkuODEtOSwyNC42MywyNC42MywwLDAsMC0xMy0yLjI1LDIzLjQzLDIzLjQzLDAsMCwwLTEyLjE0LDQuNzQsMjIuNzksMjIuNzksMCwwLDAtOC4zNCwxNC4wOWwtLjM3LDJMMjAsNTIuMTNhMjYuNTMsMjYuNTMsMCwwLDAtNS4xLDEuMzdBMTcuMDUsMTcuMDUsMCwwLDAsMTEsNTUuNTdhMTIuMjIsMTIuMjIsMCwwLDAtMi4zNCwyLjE4LDEzLjA5LDEzLjA5LDAsMCwwLTMsOC42MiwxNS41OCwxNS41OCwwLDAsMCwyLjk0LDlBMTQuNzEsMTQuNzEsMCwwLDAsMTEuMSw3OGwuNS4zOUM1MC4yOCw3My44MSw0My40LDQ1LjcsNjUuNTQsNDIuMjVaIi8+PC9zdmc+"
+  }
+}
