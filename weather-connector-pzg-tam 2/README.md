@@ -10,7 +10,7 @@ A Camunda 8 example connector working with https://app.tomorrow.io/
 2. Go into the application.properties file under src/test/resources and update with your own Camunda 8 SaaS credentials. 
 3. Go to src/main/resources folder and drag and drop the bpmn, json and form file into your Camunda Web Modeler folder. Make sure to create a new folder beforehand. 
 4. Go into the process model via the Camunda Web Modeler and click on the run button found in the upper right hand corner. Type in the city for which you need the weather information. This will start a process instance. 
-5. Go into the LocalConnectorRuntime file located in src/test/java and click run via your IDE. This will start the connector. You should see weather information in your IDE console indicating that a connector instance was completed.  
+5. Go into the LocalConnectorRuntime file located in src/test/java/io/camunda/example and click run via your IDE. This will start the connector. You should see weather information in your IDE console indicating that a connector instance was completed.  
 6. Go into Camunda Operate and inspect the process. Verify that the process instance is now at the User Task and check the result.  
 
 Email patricio.zambrano@camunda.com if you run into any issues. 
